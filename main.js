@@ -1,11 +1,11 @@
-// Assign variables to the HTML elements we want to target //
+// Assign variables to the HTML elements //
 
 var nums = document.getElementsByClassName('num');
 var clear = document.querySelector('#clear');
 var calculationField = document.querySelector('#calculation_field');
 var equal = document.querySelector('#equal');
 
-// Add event listeners to each button to run function when clicked //
+// Add event listeners to each button  //
 
 for (var num of nums) {
   num.addEventListener('click', addToEquation);
@@ -13,11 +13,9 @@ for (var num of nums) {
 clear.addEventListener('click', clearField);
 equal.addEventListener('click', computeEquation);
 
-// Create an empty array to hold the values put in the calc field //
-
 let storedEquation = "";
 
-// function adds the value of the pressed button to the calcuation field as well as the stored equation //
+// add number and operator to field //
 
 function addToEquation (e){
   if (this.textContent === "x") {
@@ -29,14 +27,14 @@ function addToEquation (e){
   }
 }
 
-//Function clears the content in the calculationField and the stored equation //
+//clears equation instead of using reload //
 
 function clearField () {
   calculationField.textContent = "";
   storedEquation = [];
 }
 
-// Upon pressing equal, run the stored equation, but first make sure that the string is evaluated as an equation //
+// runs equation stored //
 
 function computeEquation () {
   storedEquation = eval(storedEquation);
